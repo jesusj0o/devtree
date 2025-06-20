@@ -1,11 +1,4 @@
-import express from 'express'; 
-const app = express();
-
-
-//Routing 
-app.get('/', (request, response) => {
-    response.send("hi there btch")
-});
+import app from './server'; 
 
 const port = process.env.PORT || 4000; 
 
