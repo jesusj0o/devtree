@@ -28,7 +28,10 @@ const userSchema = new Schema({
         trim: true
     }
 });
+//coment
 
-//definimos el modelo y usamos  Generics para usar nuestra Interface
+
+
+
 const User = mongoose.model<IUser>('User', userSchema); 
 export default User;
