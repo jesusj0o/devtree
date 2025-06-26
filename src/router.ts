@@ -1,13 +1,10 @@
 import {Router} from 'express';
-import User from './models/User';
+import { createAccount } from './handlers';
 
 const router = Router(); 
 
-//Routing 
-router.post('/auth/register', async (request, response) => {
-    const user = new User(request.body);
-    await user.save();
-});
+//Create user account route
+router.post('/auth/register', createAccount);
 
 
 
