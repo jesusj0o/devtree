@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { body } from "express-validator";
-import { createAccount } from "./handlers";
+import { createAccount, login } from "./handlers";
 
 const router = Router();
 
@@ -21,5 +21,16 @@ router.post(
     .withMessage("Password must contain at least 8 characters"),
   createAccount
 );
+
+
+router.post('/auth/login', 
+   body("email")
+    .isEmail()
+    .withMessage("email must contain @ to be valid"),
+   body("password")
+    .isLength({min: 8})
+    .withMessage("Password must contain at least 8 characters"),
+  login
+)
 
 export default router;
