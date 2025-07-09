@@ -20,7 +20,7 @@ router.post(
    body("password")
     .isLength({min: 8})
     .withMessage("Password must contain at least 8 characters"),
-  
+  handleInputErrors,
   createAccount
 );
 
@@ -32,6 +32,7 @@ router.post('/auth/login',
    body("password")
     .isLength({min: 8})
     .withMessage("Password must contain at least 8 characters"),
+  handleInputErrors,
   login
 )
 
