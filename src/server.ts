@@ -1,15 +1,15 @@
-import express from 'express';
 import 'dotenv/config';
-import router from './router';
+import colors from 'colors';
+import app from './app';
 import { connectDB } from './config/db';
 
-const app = express();
-connectDB();
+const port = process.env.PORT || 4000;
 
-app.use(express.json()); 
-
-app.use('/', router); 
-
-
-
-export default app; 
+connectDB().then(() => {
+  app.listen(port, () => {
+    console.log(colors.magenta.bold('running server:'), port);
+  });
+}).catch((error) => {
+  console.log(colors.bgRed.bold(error.message));
+  process.exit(1);
+});

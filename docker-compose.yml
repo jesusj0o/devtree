@@ -11,3 +11,8 @@ services:
     env_file:
       - .env
     command: npm run dev
+  devtree-api-test:
+    build: .
+    env_file:
+      - .env
+    command: npm run test
